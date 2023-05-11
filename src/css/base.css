@@ -45,7 +45,7 @@ body #cdawrap {
 body {
 	margin: 0;
 	--color-text: #010300;
-	--color-bg: #76b272;
+	--color-bg:#3a454c;
 	--color-link: #000;
 	--color-link-hover: #010300;
 	color: var(--color-text);
@@ -96,6 +96,7 @@ body {
 a {
 	text-decoration: none;
 	color: var(--color-link);
+	/* color: white; */
 	outline: none;
 }
 
@@ -164,6 +165,7 @@ a:focus-visible {
 	grid-template-columns: 50% 50%;
 	grid-template-rows: auto 1fr auto auto;
 	grid-template-areas: '... menu' '... ...' 'title ...' 'sponsor ...';
+	color: #fff;
 }
 
 .frame a,
@@ -207,6 +209,7 @@ a:focus-visible {
 
 .frame__title-prev {
 	margin-top: 0.5rem;
+	color: #fff;
 }
 
 .frame__title,
@@ -265,6 +268,7 @@ a:focus-visible {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	color: #d0b79b;
 }
 
 .content__item-title span {
@@ -277,7 +281,8 @@ a:focus-visible {
 
 
 .content__item-img {
-	background-size: cover;
+	background-size: contain;
+	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	align-self: center;
 	justify-self: center;
@@ -464,6 +469,122 @@ a:focus-visible {
 	content: counter(grid-counter, decimal-leading-zero) "\00a0 \2014 \00a0" ;
 }
 
+.button-menu {
+	opacity: 0;
+}
+body:has(.grid--open) .button-menu {
+	opacity: 1;
+}
+
+.navigable .list {
+	transform: translateX(100%);
+	display: flex;
+	position: fixed;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 300px;
+	background: rgba(55,72,93, 0.9);
+	transition: transform 0.5s;
+	z-index: 1000;
+	justify-content: flex-start;
+	padding: 15px;
+	color: white;
+	
+}
+
+.navigable:target .list {
+	transform: translateX(0);
+}
+
+.navigable:target .overlay {
+	position:fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 900;
+}
+
+.navigable .list ul{
+	list-style-type: none;
+	font-size: 20px;
+	margin-top: 60px;
+	
+}
+
+.navigable ul li a {
+	color: lightgray;	
+}
+
+.navigable ul li{
+	padding-top: 10px;
+}
+
+.navigable span{
+	color: lightgray;
+	font-size: 30px;
+}
+
+.card {
+	background-color: rgba(183,138,169, 0.9);
+	background-image: url(../img/20.png);
+	background-repeat: no-repeat;
+	background-position: bottom left 50px;
+	position: fixed;
+	top: 100px;
+	left: 100px;
+	bottom: 100px;
+	right: 100px;
+	z-index: 500;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+	border-radius: 7px;
+	opacity: 0;
+	transition: opacity 0.7s;
+	pointer-events: none;
+}
+
+.card:target {
+	display: block;
+	opacity: 1;
+	pointer-events: initial;
+
+}
+
+.card a {
+	position: relative;
+	left: 96%;
+	top: 5px;
+}
+
+.me-content {
+	position: relative;
+	color: white;
+	font-size: 1.1em;
+}
+
+p.text {
+	position: absolute;
+	top: 100px;
+	left: 45%;
+	right: 8%;
+}
+
+
+.contact-content{
+	display: block;
+	position: relative;
+	font-size: 1.2em;
+	color: white;
+}
+
+p.instagram{
+	position: absolute;
+	top: 300px;
+	left: 60%;
+}
+
+
 @media screen and (min-width: 53em) {
 	.frame {
 		text-align: left;
@@ -493,5 +614,36 @@ a:focus-visible {
 
 	.content__item-title span:last-child {
 		margin: 0 -10vw -3vw 0;
+	}
+
+	/* .card {
+		background-image:none;
+	} */
+}
+
+@media (max-width: 800px) {
+	.card {
+		background-image: none;
+		top: 40px;
+		left: 30px;
+		right: 30px;
+		overflow-y: scroll;
+	
+	}
+	p.text {
+		position: absolute;
+		top: 45px;
+		left: 15%;
+		right: 8%;
+	}
+	.card a {
+		position: absolute;
+		left: 90%;
+		top: 5px;
+	}
+	p.instagram{
+		position: absolute;
+		top: 300px;
+		left: 50%;
 	}
 }
