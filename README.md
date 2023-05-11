@@ -1,3 +1,5 @@
+Personalizing Codrops "Image to Grid Transition" project to be my artworks portfolio.
+
 # Image to Grid Transition
 
 A simple transition where a large image animates to its place in a grid.
@@ -7,7 +9,6 @@ A simple transition where a large image animates to its place in a grid.
 [Article on Codrops](https://tympanus.net/codrops/?p=63608)
 
 [Demo](http://tympanus.net/Development/ImageToGridTransition/)
-
 
 ## Installation
 
@@ -38,11 +39,7 @@ npm run build
 Follow Codrops: [Twitter](http://www.twitter.com/codrops), [Facebook](http://www.facebook.com/codrops), [GitHub](https://github.com/codrops), [Instagram](https://www.instagram.com/codropsss/)
 
 ## License
+
 [MIT](LICENSE)
 
-Made with :blue_heart:  by [Codrops](http://www.codrops.com)
-
-
-
-
-
+Made with :blue_heart: by [Codrops](http://www.codrops.com)
