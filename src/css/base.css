@@ -621,6 +621,12 @@ p.instagram{
 	} */
 }
 
+.dialog {
+	/* z-index: 900; */
+	/* top: 50%;
+	transform: translateY(-50%); */
+}
+
 @media (max-width: 800px) {
 	.card {
 		background-image: none;

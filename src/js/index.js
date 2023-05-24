@@ -10,6 +10,12 @@ window.addEventListener(
 );
 
 const DOM = {
+  // dialog
+  dialog: document.querySelector(".dialog"),
+  // dialog text
+  dialogText: document.querySelector(".dialog-text"),
+  // dialogPicture
+  dialogPicture: document.querySelector(".dialog-picture"),
   // the grid
   grid: document.querySelector(".grid"),
   // enter button
@@ -34,6 +40,22 @@ const DOM = {
     ".grid > .grid__item:not(.grid__item--target):not(.grid__item--title):not(.grid__item--back)"
   ),
 };
+
+DOM.grid.addEventListener("click", function (event) {
+  if (!event.target.matches(".grid__item-img,.content__item-img")) {
+    return;
+  }
+  console.log(event.target.parentElement);
+  DOM.dialog.showModal();
+  const image = event.target.cloneNode();
+  const description = event.target.parentElement.textContent;
+  console.log(description);
+  image.style.width = "300px";
+  image.style.height = "300px";
+  DOM.dialogPicture.innerHTML = "";
+  DOM.dialogPicture.prepend(image);
+  DOM.dialogText.textContent = description;
+});
 
 const animationSettings = {
   duration: 1,
